@@ -44,6 +44,49 @@
   });
 
   /* -------------------------------------------------------
+     2b. Aviso de cookies (LGPD) — trava o Pixel
+     ------------------------------------------------------- */
+  var COOKIE_CHAVE = 'tn-cookies';
+  var aviso = document.getElementById('cookies');
+  var btnAceitar = document.getElementById('cookies-aceitar');
+  var btnRecusar = document.getElementById('cookies-recusar');
+  var btnGerenciar = document.getElementById('cookies-gerenciar');
+
+  function leConsentimento() {
+    try { return localStorage.getItem(COOKIE_CHAVE); } catch (e) { return null; }
+  }
+
+  function salvaConsentimento(valor) {
+    try { localStorage.setItem(COOKIE_CHAVE, valor); } catch (e) {}
+  }
+
+  function mostraAviso(aberto, focar) {
+    if (!aviso) return;
+    aviso.hidden = !aberto;
+    document.body.classList.toggle('cookies-aberto', aberto);
+    if (aberto && focar && btnAceitar) btnAceitar.focus();
+  }
+
+  function decide(valor) {
+    var anterior = leConsentimento();
+    salvaConsentimento(valor);
+    mostraAviso(false);
+    if (valor === 'aceito' && typeof window.tnCarregaPixel === 'function') {
+      window.tnCarregaPixel();
+    } else if (valor === 'recusado' && anterior === 'aceito') {
+      location.reload();
+    }
+  }
+
+  if (btnAceitar) btnAceitar.addEventListener('click', function () { decide('aceito'); });
+  if (btnRecusar) btnRecusar.addEventListener('click', function () { decide('recusado'); });
+  if (btnGerenciar) {
+    btnGerenciar.addEventListener('click', function () { mostraAviso(true, true); });
+  }
+
+  if (!leConsentimento()) mostraAviso(true);
+
+  /* -------------------------------------------------------
      3. Barra fixa de CTA: aparece quando o botao do hero sai da tela
      ------------------------------------------------------- */
   var barra = document.getElementById('barra');

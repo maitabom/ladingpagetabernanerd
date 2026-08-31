@@ -599,6 +599,23 @@ main, .rodape{ position:relative; z-index:1; }
   text-transform:uppercase;
   color:var(--fumaca);
 }
+.rodape__cookies{
+  display:inline-block;
+  margin-top:14px;
+  padding:0;
+  border:0;
+  background:none;
+  font-family:var(--dado);
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--fumaca);
+  cursor:pointer;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.rodape__cookies:hover{ color:var(--ouro); }
 
 /* =========================================================
    Barra fixa de CTA — só no mobile
@@ -664,6 +681,93 @@ main, .rodape{ position:relative; z-index:1; }
 @media (max-width:719px){
   .barra{ display:flex; }
   .rodape{ padding-bottom:110px; }
+  body.cookies-aberto .barra{ display:none; }
+}
+
+/* =========================================================
+   Aviso de cookies — placa na barra
+   ========================================================= */
+
+.cookies{
+  position:fixed;
+  z-index:40;
+  left:0; right:0; bottom:0;
+  padding:12px var(--gutter) calc(14px + env(safe-area-inset-bottom));
+}
+.cookies__caixa{
+  max-width:520px;
+  margin-inline:auto;
+  padding:18px 18px 16px;
+  border:1px solid rgba(255,197,61,.28);
+  border-radius:var(--raio);
+  background:
+    linear-gradient(180deg, rgba(255,197,61,.08) 0%, rgba(255,197,61,0) 58%),
+    rgba(21,18,29,.96);
+  backdrop-filter:blur(12px);
+  box-shadow:
+    0 -8px 40px rgba(0,0,0,.55),
+    0 0 0 1px rgba(244,98,42,.12);
+}
+.cookies__selo{
+  margin:0 0 8px;
+  font-family:var(--dado);
+  font-size:.66rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ouro);
+}
+.cookies__txt{
+  margin:0 0 16px;
+  color:var(--pergaminho);
+  font-size:.88rem;
+  line-height:1.5;
+}
+.cookies__acoes{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.cookies__btn{
+  flex:1 1 auto;
+  min-width:8.5rem;
+  padding:12px 18px;
+  border-radius:999px;
+  font-family:var(--corpo);
+  font-size:.92rem;
+  font-weight:700;
+  cursor:pointer;
+  transition:transform .18s ease, background-color .18s ease, color .18s ease, filter .18s ease;
+}
+.cookies__btn--recusar{
+  border:1px solid var(--borda);
+  background:transparent;
+  color:var(--pergaminho);
+}
+.cookies__btn--recusar:hover{
+  border-color:var(--ouro);
+  color:var(--ouro);
+}
+.cookies__btn--aceitar{
+  border:0;
+  color:#170D06;
+  background:linear-gradient(180deg, var(--ouro) 0%, var(--brasa) 55%, var(--sangue) 100%);
+  box-shadow:
+    0 4px 0 -1px #7A2410,
+    inset 0 1px 0 rgba(255,255,255,.5);
+}
+.cookies__btn--aceitar:hover{ filter:saturate(1.12); }
+.cookies__btn:active{ transform:translateY(2px); }
+
+@media (min-width:720px){
+  .cookies{
+    left:var(--gutter);
+    right:auto;
+    bottom:24px;
+    width:min(420px, calc(100% - 2 * var(--gutter)));
+    padding:0;
+  }
+  .cookies__caixa{ margin:0; }
 }
 
 /* =========================================================
@@ -710,7 +814,7 @@ main, .rodape{ position:relative; z-index:1; }
   .placa{ animation:none; transform:none; }
   .lampiao{ animation:none; }
   .reveal{ opacity:1; transform:none; transition:none; }
-  .btn,.mesa,.btn__seta,.barra,.rede,.apoio__btn{ transition:none; }
-  .btn--brasa:hover,.mesa:hover,.rede:hover,.apoio__btn:hover{ transform:none; }
+  .btn,.mesa,.btn__seta,.barra,.rede,.apoio__btn,.cookies__btn{ transition:none; }
+  .btn--brasa:hover,.mesa:hover,.rede:hover,.apoio__btn:hover,.cookies__btn:hover{ transform:none; }
   #brasas{ display:none; }
 }
