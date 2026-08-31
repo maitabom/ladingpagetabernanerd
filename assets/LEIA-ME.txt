@@ -1,0 +1,17 @@
+ARQUIVOS DE IMAGEM
+==================
+
+logo.png          arquivo mestre que voce enviou (1536x1024, 2,1 MB).
+                  NAO e usado pela pagina. Guarde como fonte.
+
+logo-1000.webp    versao que a pagina carrega (1000x676, ~152 KB).
+logo-1000.png     fallback pra navegador sem suporte a WebP (~365 KB).
+og-taberna.jpg    imagem do preview de link no Facebook (1200x630, ~49 KB).
+
+Se trocar a logo mestre, gere as tres de novo:
+recorte a margem transparente, redimensione pra 1000px de largura
+e salve em WebP (qualidade ~86) + PNG. A og-taberna.jpg e a logo
+centralizada sobre fundo #0B0A12 com brilho laranja no topo.
+
+A pagina tambem tem a logo desenhada em SVG dentro do index.html.
+Ela so aparece se os arquivos acima sumirem - rede de seguranca.

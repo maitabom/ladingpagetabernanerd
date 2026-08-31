@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taberna dos Nerds — a mesa tá posta</title>
+<meta name="description" content="Mais de 4 mil nerds e otakus no mesmo grupo: anime, games, RPG, quadrinhos e sci-fi. Puxa a cadeira e entra na Taberna dos Nerds.">
+<meta name="theme-color" content="#0B0A12">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Taberna dos Nerds — a mesa tá posta">
+<meta property="og:description" content="+ de 4 mil nerds falando de anime, games, RPG e quadrinhos. Entrada franca.">
+<meta property="og:image" content="assets/og-taberna.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo da Taberna dos Nerds sobre fundo escuro">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍻</text></svg>">
+
+<link rel="preload" as="image" href="assets/logo-1000.webp" type="image/webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bevan&family=JetBrains+Mono:wght@500;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<!-- Meta Pixel Code -->
+<script>
+  // TROQUE 'SEU_PIXEL_ID' pelo ID do seu pixel no Gerenciador de Eventos da Meta.
+  window.TABERNA_PIXEL_ID = 'SEU_PIXEL_ID';
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', window.TABERNA_PIXEL_ID);
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<canvas id="brasas" aria-hidden="true"></canvas>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="wrap">
+
+      <div class="placa" role="img" aria-label="Logo da Taberna dos Nerds">
+        <span class="placa__corrente placa__corrente--e" aria-hidden="true"></span>
+        <span class="placa__corrente placa__corrente--d" aria-hidden="true"></span>
+        <div class="placa__quadro">
+          <picture id="logo-png" hidden>
+            <source srcset="assets/logo-1000.webp" type="image/webp">
+            <img src="assets/logo-1000.png" alt="Taberna dos Nerds"
+                 width="1000" height="676" id="logo" fetchpriority="high" decoding="async">
+          </picture>
+
+          <!-- Logo vetorial da Taberna dos Nerds (usada quando assets/logo.png nao existe) -->
+          <svg class="placa__svg" id="logo-svg" viewBox="0 0 1520 1010" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <text id="tn-taberna" x="760" y="400" text-anchor="middle" textLength="800"
+                    lengthAdjust="spacingAndGlyphs" font-size="200">TABERNA</text>
+              <text id="tn-dos" x="760" y="512" text-anchor="middle" textLength="230"
+                    lengthAdjust="spacingAndGlyphs" font-size="112">DOS</text>
+              <text id="tn-nerds" x="760" y="762" text-anchor="middle" textLength="800"
+                    lengthAdjust="spacingAndGlyphs" font-size="268">NERDS</text>
+
+              <clipPath id="tn-cp-taberna"><use href="#tn-taberna"/></clipPath>
+              <clipPath id="tn-cp-dos"><use href="#tn-dos"/></clipPath>
+              <clipPath id="tn-cp-nerds"><use href="#tn-nerds"/></clipPath>
+
+              <!-- arabesco de canto -->
+              <g id="tn-swirl">
+                <path d="M 88 4 c -32 -10 -66 8 -70 36 c -3 21 21 35 37 25 c 13 -8 12 -29 -3 -33 c -12 -3 -23 7 -21 19"/>
+                <path d="M 26 60 c -34 42 -29 106 16 140"/>
+              </g>
+
+              <!-- onda ao lado de DOS -->
+              <g id="tn-wave">
+                <path d="M 610 470 c -26 -28 -60 -24 -76 4 c -13 22 -38 24 -55 7"/>
+                <path d="M 479 481 c -14 12 -36 6 -36 -12 c 0 -13 15 -19 24 -10"/>
+              </g>
+
+              <!-- onda abaixo de NERDS -->
+              <g id="tn-wave2" transform="translate(0 -16)">
+                <path d="M 756 806 c -26 -26 -60 -22 -76 6 c -13 22 -38 24 -55 7"/>
+                <path d="M 625 819 c -14 12 -36 6 -36 -12 c 0 -13 15 -19 24 -10"/>
+              </g>
+            </defs>
+
+            <!-- moldura -->
+            <rect x="232" y="172" width="1056" height="666" rx="54"
+                  fill="none" stroke="#2BA6E0" stroke-width="12"/>
+
+            <!-- arabescos -->
+            <g fill="none" stroke="#2BA6E0" stroke-width="10" stroke-linecap="round">
+              <use href="#tn-swirl" transform="translate(254 224)"/>
+              <use href="#tn-swirl" transform="translate(254 786) scale(1 -1)"/>
+              <use href="#tn-swirl" transform="translate(1266 224) scale(-1 1)"/>
+              <use href="#tn-swirl" transform="translate(1266 786) scale(-1 -1)"/>
+
+              <use href="#tn-wave"/>
+              <use href="#tn-wave" transform="translate(1520 0) scale(-1 1)"/>
+
+              <use href="#tn-wave2"/>
+              <use href="#tn-wave2" transform="translate(1520 0) scale(-1 1)"/>
+            </g>
+
+            <!-- lettering: corpo laranja + filete claro interno + borda laranja -->
+            <g font-family="Bevan, Georgia, serif" font-weight="400">
+              <g clip-path="url(#tn-cp-taberna)">
+                <use href="#tn-taberna" fill="#F4622A"/>
+                <use href="#tn-taberna" fill="none" stroke="#FFCE8A" stroke-width="26"/>
+                <use href="#tn-taberna" fill="none" stroke="#F4622A" stroke-width="10"/>
+              </g>
+              <g clip-path="url(#tn-cp-dos)">
+                <use href="#tn-dos" fill="#F4622A"/>
+                <use href="#tn-dos" fill="none" stroke="#FFCE8A" stroke-width="16"/>
+                <use href="#tn-dos" fill="none" stroke="#F4622A" stroke-width="6"/>
+              </g>
+              <g clip-path="url(#tn-cp-nerds)">
+                <use href="#tn-nerds" fill="#F4622A"/>
+                <use href="#tn-nerds" fill="none" stroke="#FFCE8A" stroke-width="32"/>
+                <use href="#tn-nerds" fill="none" stroke="#F4622A" stroke-width="12"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <p class="eyebrow"><span class="lampiao"></span>Taberna aberta &middot; entrada franca</p>
+
+      <h1 class="titulo">Puxa a<br>cadeira,<br><em>nerd.</em></h1>
+
+      <p class="lead">
+        Anime, game, RPG, quadrinho e teoria maluca de série &mdash;
+        com gente que fala a sua língua e ninguém pra explicar a piada.
+      </p>
+
+      <p class="prova"><strong>+ de 4 mil nerds</strong> já puxaram a cadeira</p>
+
+      <a class="btn btn--brasa" href="https://www.facebook.com/groups/tabernanerd"
+         target="_blank" rel="noopener"
+         data-cta="principal" data-grupo="Taberna dos Nerds">
+        Entrar na Taberna
+        <span class="btn__seta" aria-hidden="true">&rarr;</span>
+      </a>
+
+      <p class="passo">Clica, responde 2 perguntas rápidas e tá dentro.</p>
+      <p class="selo">Grupo no Facebook &middot; grátis &middot; sem treta</p>
+
+      <ul class="chips" aria-label="Assuntos da mesa">
+        <li>Anime &amp; mangá</li>
+        <li>Games</li>
+        <li>RPG de mesa</li>
+        <li>Quadrinhos</li>
+        <li>Sci-fi &amp; fantasia</li>
+        <li>Cultura pop</li>
+      </ul>
+
+    </div>
+  </header>
+
+  <!-- ============ POR QUE ENTRAR ============ -->
+  <section class="cardapio" aria-labelledby="cardapio-t">
+    <div class="wrap">
+      <h2 class="secao" id="cardapio-t">O que serve na casa</h2>
+      <svg class="filete" viewBox="0 0 240 26" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M120 9c-14-14-32-10-40 4-7 12-20 13-29 4"/><path d="M51 17c-7 6-19 3-19-6 0-7 8-10 13-5"/><path d="M120 9c14-14 32-10 40 4 7 12 20 13 29 4"/><path d="M189 17c7 6 19 3 19-6 0-7-8-10-13-5"/></g></svg>
+      <ul class="cardapio__lista">
+        <li class="prato">
+          <span class="prato__icone" aria-hidden="true">&#9733;</span>
+          <h3>Papo sem julgamento</h3>
+          <p>Gosto duvidoso é bem-vindo. Gatekeeping fica na porta.</p>
+        </li>
+        <li class="prato">
+          <span class="prato__icone" aria-hidden="true">&#9670;</span>
+          <h3>Indicação que presta</h3>
+          <p>Do anime da temporada ao clássico que você nunca viu.</p>
+        </li>
+        <li class="prato">
+          <span class="prato__icone" aria-hidden="true">&#9827;</span>
+          <h3>Mesa cheia todo dia</h3>
+          <p>Meme de manhã, debate à tarde, spoiler bloqueado sempre.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ OUTRAS MESAS ============ -->
+  <section class="mesas" aria-labelledby="mesas-t">
+    <div class="wrap">
+      <h2 class="secao secao--runa" id="mesas-t">Outras mesas da casa</h2>
+      <svg class="filete" viewBox="0 0 240 26" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M120 9c-14-14-32-10-40 4-7 12-20 13-29 4"/><path d="M51 17c-7 6-19 3-19-6 0-7 8-10 13-5"/><path d="M120 9c14-14 32-10 40 4 7 12 20 13 29 4"/><path d="M189 17c7 6 19 3 19-6 0-7-8-10-13-5"/></g></svg>
+      <p class="mesas__nota">Já é da Taberna? Os salões vizinhos também tão abertos.</p>
+
+      <div class="mesas__grid">
+        <a class="mesa" href="https://www.facebook.com/groups/confrariatabernadosnerds"
+           target="_blank" rel="noopener"
+           data-cta="secundario" data-grupo="Confraria da Taberna dos Nerds">
+          <span class="mesa__tag">Confraria</span>
+          <h3>Confraria da Taberna dos Nerds</h3>
+          <p>O salão reservado de quem já senta na mesa grande.</p>
+          <span class="mesa__link">Entrar <span aria-hidden="true">&rarr;</span></span>
+        </a>
+
+        <a class="mesa" href="https://www.facebook.com/groups/ocafofodaemilia"
+           target="_blank" rel="noopener"
+           data-cta="secundario" data-grupo="Cafofo da Emília">
+          <span class="mesa__tag">Cafofo</span>
+          <h3>Cafofo da Emília</h3>
+          <p>Canto aconchegante pra papo solto fora do balcão.</p>
+          <span class="mesa__link">Entrar <span aria-hidden="true">&rarr;</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ADM EMÍLIA ============ -->
+  <section class="adm" aria-labelledby="adm-t">
+    <div class="wrap">
+      <h2 class="secao" id="adm-t">Conheça a ADM Emília</h2>
+      <svg class="filete" viewBox="0 0 240 26" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M120 9c-14-14-32-10-40 4-7 12-20 13-29 4"/><path d="M51 17c-7 6-19 3-19-6 0-7 8-10 13-5"/><path d="M120 9c14-14 32-10 40 4 7 12 20 13 29 4"/><path d="M189 17c7 6 19 3 19-6 0-7-8-10-13-5"/></g></svg>
+      <p class="adm__nota">Quem mantém a casa de pé. Chega junto nas redes dela.</p>
+
+      <ul class="redes">
+        <li>
+          <a class="rede" href="https://www.facebook.com/suawaifuemilia"
+             target="_blank" rel="noopener"
+             data-cta="adm-social" data-evento="Contact" data-grupo="Emília · Facebook">
+            <svg class="rede__icone" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.2-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21z"/></svg>
+            Facebook
+          </a>
+        </li>
+        <li>
+          <a class="rede" href="https://www.instagram.com/suawaifuemilia/"
+             target="_blank" rel="noopener"
+             data-cta="adm-social" data-evento="Contact" data-grupo="Emília · Instagram">
+            <svg class="rede__icone" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="5"/><circle cx="12" cy="12" r="3.9"/></g><circle cx="17.1" cy="6.9" r="1.25" fill="currentColor"/></svg>
+            Instagram
+          </a>
+        </li>
+        <li>
+          <a class="rede" href="https://x.com/suawaifuemilia"
+             target="_blank" rel="noopener"
+             data-cta="adm-social" data-evento="Contact" data-grupo="Emília · X">
+            <svg class="rede__icone" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.2 3h3.3l-7.2 8.2L21.8 21h-6.6l-4.3-5.6L5.8 21H2.5l7.7-8.8L2.2 3h6.8l3.9 5.2zm-1.2 16h1.8L8.1 4.9H6.1z"/></svg>
+            Twitter
+          </a>
+        </li>
+      </ul>
+
+      <div class="apoio">
+        <h3 class="apoio__titulo">Pagar uma rodada</h3>
+        <p class="apoio__nota">Contribuição voluntária. Ajuda a manter a taberna aberta.</p>
+        <div class="apoio__acoes">
+          <a class="apoio__btn" href="https://livepix.gg/suawaifuemilia"
+             target="_blank" rel="noopener"
+             data-cta="apoio" data-evento="Donate" data-grupo="LivePix">LivePix</a>
+          <a class="apoio__btn" href="https://donate.stripe.com/6oUfZg6od0NS1f38Lp7kc00"
+             target="_blank" rel="noopener"
+             data-cta="apoio" data-evento="Donate" data-grupo="Stripe">Doar via Stripe</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINAL ============ -->
+  <section class="final">
+    <div class="wrap">
+      <svg class="filete filete--centro" viewBox="0 0 240 26" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M120 9c-14-14-32-10-40 4-7 12-20 13-29 4"/><path d="M51 17c-7 6-19 3-19-6 0-7 8-10 13-5"/><path d="M120 9c14-14 32-10 40 4 7 12 20 13 29 4"/><path d="M189 17c7 6 19 3 19-6 0-7-8-10-13-5"/></g></svg>
+      <h2 class="final__titulo">A cadeira tá vazia.<br><em>É sua.</em></h2>
+      <a class="btn btn--brasa" href="https://www.facebook.com/groups/tabernanerd"
+         target="_blank" rel="noopener"
+         data-cta="rodape" data-grupo="Taberna dos Nerds">
+        Entrar na Taberna
+        <span class="btn__seta" aria-hidden="true">&rarr;</span>
+      </a>
+      <p class="passo">Junte-se a mais de 4 mil nerds. Leva 10 segundos.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <p class="rodape__marca">Taberna dos Nerds</p>
+    <p class="rodape__nota">Comunidade nerd e otaku no Facebook.</p>
+  </div>
+</footer>
+
+<!-- barra fixa de CTA (mobile) -->
+<div class="barra" id="barra">
+  <p class="barra__texto"><strong>+ de 4 mil nerds</strong><span>na mesa agora</span></p>
+  <a class="barra__btn" href="https://www.facebook.com/groups/tabernanerd"
+     target="_blank" rel="noopener"
+     data-cta="barra-fixa" data-grupo="Taberna dos Nerds">Entrar</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
