@@ -29,24 +29,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Bevan&family=JetBrains+Mono:wght@500;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel: só dispara depois do consentimento (LGPD) -->
 <script>
-  // TROQUE 'SEU_PIXEL_ID' pelo ID do seu pixel no Gerenciador de Eventos da Meta.
-  window.TABERNA_PIXEL_ID = 'SEU_PIXEL_ID';
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window,document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', window.TABERNA_PIXEL_ID);
-  fbq('track', 'PageView');
+(function () {
+  var PIXEL_ID = '1493426309290534';
+  var CHAVE = 'tn-cookies';
+
+  window.tnCarregaPixel = function () {
+    if (window.fbq) return;
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', PIXEL_ID);
+    fbq('track', 'PageView');
+  };
+
+  try {
+    if (localStorage.getItem(CHAVE) === 'aceito') window.tnCarregaPixel();
+  } catch (e) {}
+})();
 </script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -303,8 +310,23 @@
   <div class="wrap">
     <p class="rodape__marca">Taberna dos Nerds</p>
     <p class="rodape__nota">Comunidade nerd e otaku no Facebook.</p>
+    <button type="button" class="rodape__cookies" id="cookies-gerenciar">Gerenciar cookies</button>
   </div>
 </footer>
+
+<aside class="cookies" id="cookies" hidden role="region" aria-labelledby="cookies-t" aria-describedby="cookies-d">
+  <div class="cookies__caixa">
+    <p class="cookies__selo" id="cookies-t">Casa · cookies</p>
+    <p class="cookies__txt" id="cookies-d">
+      A Taberna usa o Meta Pixel pra saber de onde o pessoal chega e medir os convites.
+      Sem isso a casa funciona igual — você escolhe.
+    </p>
+    <div class="cookies__acoes">
+      <button type="button" class="cookies__btn cookies__btn--recusar" id="cookies-recusar">Recusar</button>
+      <button type="button" class="cookies__btn cookies__btn--aceitar" id="cookies-aceitar">Aceitar</button>
+    </div>
+  </div>
+</aside>
 
 <!-- barra fixa de CTA (mobile) -->
 <div class="barra" id="barra">
