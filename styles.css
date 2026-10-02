@@ -101,7 +101,7 @@ main, .rodape{ position:relative; z-index:1; }
 /* --- a placa --- */
 .placa{
   position:relative;
-  width:min(90%, 430px);
+  width:min(80%, 370px);
   margin:0 auto;
   padding-top:74px;              /* espaço das correntes */
   transform-origin:50% 8px;
@@ -132,7 +132,7 @@ main, .rodape{ position:relative; z-index:1; }
 
 .placa__quadro{
   position:relative;
-  padding:14px 16px;
+  padding:6px 8px;
   border-radius:var(--raio);
   background:linear-gradient(180deg, #34313C 0%, #24222B 100%);
   box-shadow:
@@ -159,8 +159,15 @@ main, .rodape{ position:relative; z-index:1; }
 /* logo vetorial dentro da placa */
 .placa__svg{
   display:block;
-  width:100%;
+  width:130%;
+  margin-inline:-15%;
   height:auto;
+}
+
+.placa__quadro > picture{
+  display:block;
+  width:130%;
+  margin-inline:-15%;
 }
 
 /* --- textos do hero --- */
@@ -261,7 +268,7 @@ main, .rodape{ position:relative; z-index:1; }
 
 /* prova social */
 .prova{
-  margin:24px 0 0;
+  margin:12px 0 0;
   font-size:.98rem;
   color:var(--fumaca);
 }
@@ -759,6 +766,13 @@ main, .rodape{ position:relative; z-index:1; }
 .cookies__btn--aceitar:hover{ filter:saturate(1.12); }
 .cookies__btn:active{ transform:translateY(2px); }
 
+@media (max-width:719px){
+  .cookies__caixa{ padding:12px 14px 10px; }
+  .cookies__selo{ margin-bottom:5px; font-size:.6rem; }
+  .cookies__txt{ margin-bottom:10px; font-size:.8rem; line-height:1.4; }
+  .cookies__btn{ padding-block:8px; font-size:.82rem; }
+}
+
 @media (min-width:720px){
   .cookies{
     left:var(--gutter);
@@ -791,7 +805,7 @@ main, .rodape{ position:relative; z-index:1; }
 @media (min-width:640px){
   body{ font-size:18px; }
   .hero{ padding-block:0 84px; }
-  .placa{ padding-top:92px; width:min(72%, 470px); }
+  .placa{ padding-top:92px; width:min(64%, 410px); }
   .placa__corrente{ height:96px; }
   .cardapio__lista{ grid-template-columns:repeat(3,1fr); gap:18px; }
   .mesas__grid{ grid-template-columns:repeat(2,1fr); gap:18px; }
