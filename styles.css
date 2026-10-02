@@ -802,6 +802,19 @@ main, .rodape{ position:relative; z-index:1; }
    Telas maiores
    ========================================================= */
 
+@media (max-width:639px){
+  .hero{ padding-block:6px 36px; }
+  .placa{ width:min(70%, 300px); padding-top:48px; }
+  .placa__corrente{ height:52px; }
+  .placa__quadro{ padding:0 4px; }
+  .placa__svg,
+  .placa__quadro > picture{ width:112%; margin-inline:-6%; }
+  .eyebrow{ margin-top:22px; }
+  .titulo{ margin-top:8px; font-size:clamp(2.1rem, 11vw, 3.2rem); }
+  .lead{ margin-top:12px; font-size:.95rem; }
+  .btn{ margin-top:18px; padding-block:14px; }
+}
+
 @media (min-width:640px){
   body{ font-size:18px; }
   .hero{ padding-block:0 84px; }
